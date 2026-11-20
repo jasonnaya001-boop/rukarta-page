@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rukarta — Russian verbs from the root up</title>
+  <meta name="description" content="Stop memorizing Russian verbs as isolated words. Build them from parts, compare aspect partners, and learn how prefixes reshape meaning in real sentences.">
+  <meta property="og:title" content="Rukarta — Russian verbs from the root up">
+  <meta property="og:description" content="Build Russian verbs from their parts, compare aspect partners, and see how prefixes change meaning in real sentences.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#092C21">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1024 1024'%3E%3Crect width='1024' height='1024' rx='232' fill='%23092C21'/%3E%3Cpath d='M240 791L334 236H419L348 657L280 791H240Z' fill='%23F5F2E4'/%3E%3Cpath d='M466 230H608L746 372L620 523H452L469 445H588L653 372L593 308H452L466 230Z' fill='%23F5F2E4'/%3E%3Cpath d='M456 560H562L635 651H590L740 778H625L456 560Z' fill='%23F5F2E4'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --ink: #f5f2e4;
+      --muted: #a8b8ae;
+      --green: #092c21;
+      --line: #245242;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body {
+      min-height: 100vh;
+      background: var(--green);
+      color: var(--ink);
+      font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+      line-height: 1.5;
+    }
+    main {
+      width: min(980px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 56px 0 48px;
+    }
+    .mark { width: 72px; height: 72px; display: block; }
+    h1 {
+      margin: 28px 0 0;
+      font-family: Palatino, "Palatino Linotype", "Iowan Old Style", Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(40px, 7vw, 64px);
+      letter-spacing: -0.03em;
+      line-height: 0.95;
+    }
+    .lead {
+      margin: 20px 0 0;
+      max-width: 38em;
+      color: var(--muted);
+      font-size: 18px;
+    }
+    .shots {
+      list-style: none;
+      margin: 40px 0 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .shots figure { margin: 0; }
+    .shots img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 28px;
+      border: 1px solid var(--line);
+      background: #03160f;
+    }
+    .shots figcaption {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    footer {
+      margin-top: 48px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    a { color: var(--ink); }
+    @media (max-width: 800px) {
+      .shots { grid-template-columns: 1fr; max-width: 390px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <svg class="mark" viewBox="0 0 1024 1024" aria-hidden="true">
+      <rect width="1024" height="1024" rx="232" fill="#F5F2E4"/>
+      <path d="M240 791L334 236H419L348 657L280 791H240Z" fill="#092C21"/>
+      <path d="M466 230H608L746 372L620 523H452L469 445H588L653 372L593 308H452L466 230Z" fill="#092C21"/>
+      <path d="M456 560H562L635 651H590L740 778H625L456 560Z" fill="#092C21"/>
+    </svg>
+    <h1>Russian verbs, from the root up.</h1>
+    <p class="lead">Stop memorizing Russian verbs as isolated words. Build them from parts, compare aspect partners, and learn how prefixes reshape meaning in real sentences.</p>
+
+    <ul class="shots">
+      <li>
+        <figure>
+          <img src="card.png" alt="Rukarta showing the sentence Мы с Томом очень часто делаем так же, with делать highlighted, and the verb card for делать.">
+          <figcaption>Read a real sentence. The verb you are studying is marked in it.</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <img src="result.png" alt="The same screen flipped to the perfective: the sentence Том всё правильно сделал, labeled Result.">
+          <figcaption>Flip the card. The sentence changes to the perfective result.</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <img src="quiz.png" alt="A Rukarta quiz asking which verb is missing from Ты можешь сказать мне, что Том, with choices from the делать family.">
+          <figcaption>Quiz the family: the missing verb, from the prefixes you just saw.</figcaption>
+        </figure>
+      </li>
+    </ul>
+
+    <footer>
+      <a href="https://jasonnaya001-boop.github.io/rukarta-legal/">Privacy</a>
+      <span> · </span>
+      <a href="mailto:jasonnaya@live.com">jasonnaya@live.com</a>
+    </footer>
+  </main>
+</body>
+</html>
