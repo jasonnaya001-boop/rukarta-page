@@ -4,118 +4,333 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Rukarta — Russian verbs from the root up</title>
-  <meta name="description" content="Stop memorizing Russian verbs as isolated words. Build them from parts, compare aspect partners, and learn how prefixes reshape meaning in real sentences.">
+  <meta name="description" content="ставить and выставлять share one root. Follow the prefix, then solve the sentence.">
   <meta property="og:title" content="Rukarta — Russian verbs from the root up">
-  <meta property="og:description" content="Build Russian verbs from their parts, compare aspect partners, and see how prefixes change meaning in real sentences.">
+  <meta property="og:description" content="One root. ставить, выставлять, and the prefixes that change the meaning.">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#092C21">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1024 1024'%3E%3Crect width='1024' height='1024' rx='232' fill='%23092C21'/%3E%3Cpath d='M240 791L334 236H419L348 657L280 791H240Z' fill='%23F5F2E4'/%3E%3Cpath d='M466 230H608L746 372L620 523H452L469 445H588L653 372L593 308H452L466 230Z' fill='%23F5F2E4'/%3E%3Cpath d='M456 560H562L635 651H590L740 778H625L456 560Z' fill='%23F5F2E4'/%3E%3C/svg%3E">
+  <link rel="icon" href="splash.png">
   <style>
     :root {
       --ink: #f5f2e4;
       --muted: #a8b8ae;
+      --faint: #7d9186;
       --green: #092c21;
+      --paper: #0f3a2c;
       --line: #245242;
+      --process: #5fc796;
+      --process-fill: #3a8562;
+      --result: #f59a4d;
+      --result-fill: #d2600a;
+      --purple: #6b46b0;
+      /* Segoe UI and Arial both include Cyrillic. system-ui does not: Russian falls through to a serif. */
+      --sans: "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
     }
     * { box-sizing: border-box; }
     html, body { margin: 0; }
     body {
-      min-height: 100vh;
       background: var(--green);
       color: var(--ink);
-      font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+      font-family: var(--sans);
       line-height: 1.5;
     }
+    button { font-family: var(--sans); }
     main {
-      width: min(980px, calc(100% - 40px));
+      width: min(720px, calc(100% - 40px));
       margin: 0 auto;
-      padding: 56px 0 48px;
+      padding: 48px 0 64px;
     }
-    .mark { width: 72px; height: 72px; display: block; }
-    h1 {
-      margin: 28px 0 0;
-      font-family: Palatino, "Palatino Linotype", "Iowan Old Style", Georgia, serif;
-      font-weight: 500;
-      font-size: clamp(40px, 7vw, 64px);
-      letter-spacing: -0.03em;
-      line-height: 0.95;
-    }
-    .lead {
-      margin: 20px 0 0;
-      max-width: 38em;
-      color: var(--muted);
-      font-size: 18px;
-    }
-    .shots {
-      list-style: none;
-      margin: 40px 0 0;
-      padding: 0;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-    .shots figure { margin: 0; }
-    .shots img {
-      width: 100%;
-      height: auto;
+    .splash {
       display: block;
-      border-radius: 28px;
+      width: min(280px, 78%);
+      height: auto;
+    }
+    h1 {
+      margin: 22px 0 0;
+      font-weight: 500;
+      font-size: clamp(36px, 6vw, 56px);
+      letter-spacing: -0.03em;
+      line-height: 0.98;
+    }
+    .lead { margin: 16px 0 0; max-width: 38em; color: var(--muted); font-size: 18px; }
+    .beat { margin-top: 56px; }
+    .voice {
+      margin: 0 0 18px;
+      font-size: 22px;
+      line-height: 1.35;
+    }
+    .voice em { font-style: normal; color: var(--process); }
+    .phone {
+      width: min(360px, 100%);
+      margin: 0 auto;
+      background: #071f18;
       border: 1px solid var(--line);
-      background: #03160f;
+      border-radius: 28px;
+      padding: 18px 16px 16px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.28);
     }
-    .shots figcaption {
-      margin-top: 10px;
-      color: var(--muted);
-      font-size: 14px;
+    .cat {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
     }
-    footer {
-      margin-top: 48px;
-      color: var(--muted);
-      font-size: 14px;
+    .cat strong { color: var(--process); font-size: 15px; font-weight: 650; }
+    .cat span { color: var(--faint); font-size: 12px; }
+    .lang {
+      border: 1px solid var(--process);
+      color: var(--process);
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 13px;
+      font-weight: 700;
     }
+    .sentence {
+      margin-top: 16px;
+      background: var(--paper);
+      border-radius: 16px;
+      padding: 16px 14px 14px;
+      text-align: center;
+    }
+    .kicker {
+      margin: 0;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      font-weight: 750;
+    }
+    .kicker.process { color: var(--process); }
+    .kicker.result { color: var(--result); }
+    .ru {
+      margin: 8px 0 0;
+      font-size: 22px;
+      line-height: 1.25;
+    }
+    .ru b { font-weight: 650; }
+    .ru b.process { color: var(--process); }
+    .ru b.result { color: var(--result); }
+    .en { margin: 8px 0 0; color: var(--muted); font-size: 14px; }
+    .wheel {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin: 16px 0 12px;
+      color: var(--faint);
+      font-size: 15px;
+    }
+    .wheel .on { color: var(--process); font-weight: 700; }
+    .card {
+      display: flex;
+      min-height: 112px;
+      border-radius: 18px;
+      overflow: hidden;
+    }
+    .pre {
+      width: 78px;
+      background: var(--purple);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      color: rgba(245,242,228,0.55);
+      font-size: 15px;
+    }
+    .pre .on { color: var(--ink); font-weight: 750; font-size: 18px; }
+    .face { flex: 1; padding: 12px 14px 14px; }
+    .face.process { background: var(--process-fill); }
+    .face.result { background: var(--result-fill); }
+    .face .kicker { color: rgba(245,242,228,0.82); }
+    .stem {
+      margin: 8px 0 0;
+      text-align: center;
+      font-size: 28px;
+    }
+    .root {
+      margin: 2px 0 0;
+      text-align: center;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      color: rgba(245,242,228,0.8);
+    }
+    .problem { margin-top: 56px; }
+    .choices { margin: 14px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+    .choices button {
+      width: 100%;
+      text-align: left;
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 10px 12px;
+      font: inherit;
+      font-size: 17px;
+      cursor: pointer;
+    }
+    .choices button:hover { border-color: var(--process); }
+    .choices .mark {
+      display: inline-grid;
+      place-items: center;
+      width: 26px;
+      height: 26px;
+      margin-right: 10px;
+      border-radius: 50%;
+      background: #163f31;
+      color: var(--process);
+      font-size: 13px;
+      font-weight: 750;
+    }
+    .choices button.right { background: #163f31; border-color: var(--process); }
+    .choices button.wrong { border-color: #a44337; }
+    .choices button:disabled { cursor: default; }
+    .feedback { min-height: 1.4em; margin: 12px 0 0; color: var(--process); font-size: 15px; }
+    footer { margin-top: 48px; color: var(--muted); font-size: 14px; }
     a { color: var(--ink); }
-    @media (max-width: 800px) {
-      .shots { grid-template-columns: 1fr; max-width: 390px; }
+    .cta { margin: 22px 0 0; }
+    .button {
+      display: inline-block;
+      background: var(--process-fill);
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 650;
+      padding: 12px 20px;
+      border-radius: 999px;
     }
+    .button:hover { background: var(--process); color: var(--green); }
   </style>
 </head>
 <body>
   <main>
-    <svg class="mark" viewBox="0 0 1024 1024" aria-hidden="true">
-      <rect width="1024" height="1024" rx="232" fill="#F5F2E4"/>
-      <path d="M240 791L334 236H419L348 657L280 791H240Z" fill="#092C21"/>
-      <path d="M466 230H608L746 372L620 523H452L469 445H588L653 372L593 308H452L466 230Z" fill="#092C21"/>
-      <path d="M456 560H562L635 651H590L740 778H625L456 560Z" fill="#092C21"/>
-    </svg>
+    <img class="splash" src="splash.png" alt="Rukarta">
     <h1>Russian verbs, from the root up.</h1>
-    <p class="lead">Stop memorizing Russian verbs as isolated words. Build them from parts, compare aspect partners, and learn how prefixes reshape meaning in real sentences.</p>
+    <p class="lead">Have you ever noticed the relationship between ставить, to put, and выставлять, to exhibit? Here is how it works.</p>
+    <p class="cta"><a class="button" href="https://apps.apple.com/sa/app/rukarta-learn-russian-verbs/id6821547588">Get Rukarta on the App Store</a></p>
 
-    <ul class="shots">
-      <li>
-        <figure>
-          <img src="card.png" alt="Rukarta showing the sentence Мы с Томом очень часто делаем так же, with делать highlighted, and the verb card for делать.">
-          <figcaption>Read a real sentence. The verb you are studying is marked in it.</figcaption>
-        </figure>
-      </li>
-      <li>
-        <figure>
-          <img src="result.png" alt="The same screen flipped to the perfective: the sentence Том всё правильно сделал, labeled Result.">
-          <figcaption>Flip the card. The sentence changes to the perfective result.</figcaption>
-        </figure>
-      </li>
-      <li>
-        <figure>
-          <img src="quiz.png" alt="A Rukarta quiz asking which verb is missing from Ты можешь сказать мне, что Том, with choices from the делать family.">
-          <figcaption>Quiz the family: the missing verb, from the prefixes you just saw.</figcaption>
-        </figure>
-      </li>
-    </ul>
+    <section class="beat">
+      <p class="voice">Start with <em>ставить</em>. To put.</p>
+      <div class="phone" aria-label="App screen for ставить">
+        <div class="cat"><div><strong>Placing &amp; holding</strong><div><span>1 of 32</span></div></div><div class="lang">ES</div></div>
+        <div class="sentence">
+          <p class="kicker process">PROCESS</p>
+          <p class="ru">Я <b class="process">ставлю</b> чайник на плиту и жду гостей.</p>
+          <p class="en">I put the kettle on the stove and wait for guests.</p>
+        </div>
+        <div class="wheel"><span>держать</span><span class="on">ставить</span><span>класть</span></div>
+        <div class="card">
+          <div class="pre"><span>вы</span><span class="on">∅</span><span>до</span></div>
+          <div class="face process">
+            <p class="kicker">PROCESS</p>
+            <p class="stem">ставить</p>
+            <p class="root">root став</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="beat">
+      <p class="voice">Swipe the prefix to <em>вы-</em>. The base verb shifts slightly, from <em>ставить</em> to <em>ставлять</em>, and we get a new imperfective verb: <em>выставлять</em>. To exhibit.</p>
+      <div class="phone" aria-label="App screen for выставлять">
+        <div class="cat"><div><strong>Placing &amp; holding</strong><div><span>same family</span></div></div><div class="lang">ES</div></div>
+        <div class="sentence">
+          <p class="kicker process">PROCESS</p>
+          <p class="ru">Мы <b class="process">выставляем</b> на витрину самые яркие игрушки.</p>
+          <p class="en">We put the brightest toys on display in the shop window.</p>
+        </div>
+        <div class="wheel"><span>держать</span><span class="on">ставить</span><span>класть</span></div>
+        <div class="card">
+          <div class="pre"><span>∅</span><span class="on">вы</span><span>до</span></div>
+          <div class="face process">
+            <p class="kicker">PROCESS</p>
+            <p class="stem">выставлять</p>
+            <p class="root">вы- + ставл</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="beat">
+      <p class="voice">Flip the card. The perfective pair is <em>выставить</em>. Same base. But the action has finished. Pay attention to the pattern here. Once a prefix gets added to the imperfective verb the base changes. <em>ставить</em> then becomes the base for perfective verbs with prefixes.</p>
+      <div class="phone" aria-label="App screen for выставить">
+        <div class="cat"><div><strong>Placing &amp; holding</strong><div><span>perfective</span></div></div><div class="lang">ES</div></div>
+        <div class="sentence">
+          <p class="kicker result">RESULT</p>
+          <p class="ru">Художник с гордостью <b class="result">выставил</b> свою новую масштабную картину на вернисаже.</p>
+          <p class="en">The artist proudly exhibited his new large-scale painting at the art preview.</p>
+        </div>
+        <div class="wheel"><span>держать</span><span class="on">ставить</span><span>класть</span></div>
+        <div class="card">
+          <div class="pre"><span>∅</span><span class="on">вы</span><span>по</span></div>
+          <div class="face result">
+            <p class="kicker">RESULT</p>
+            <p class="stem">выставить</p>
+            <p class="root">вы- + став</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="beat">
+      <p class="voice">Look how other verbs behave the same: <em>доставлять</em>, to deliver. Or <em>заставлять</em>, to force. And <em>оставлять</em>, to leave behind. Same core. It just slightly changes.</p>
+      <div class="phone" aria-label="App screen for доставлять">
+        <div class="cat"><div><strong>Placing &amp; holding</strong><div><span>prefix до-</span></div></div><div class="lang">ES</div></div>
+        <div class="sentence">
+          <p class="kicker process">PROCESS</p>
+          <p class="ru">Я <b class="process">доставляю</b> свежие овощи в ресторан каждое утро.</p>
+          <p class="en">I deliver fresh vegetables to the restaurant every morning.</p>
+        </div>
+        <div class="wheel"><span>держать</span><span class="on">ставить</span><span>класть</span></div>
+        <div class="card">
+          <div class="pre"><span>вы</span><span class="on">до</span><span>за</span></div>
+          <div class="face process">
+            <p class="kicker">PROCESS</p>
+            <p class="stem">доставлять</p>
+            <p class="root">до- + ставл</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="problem">
+      <p class="voice">Let's answer a simple question here.</p>
+      <div class="phone" aria-label="Quiz">
+        <div class="sentence">
+          <p class="kicker process">1 OF 1</p>
+          <p class="ru">Мы ______ на витрину самые яркие игрушки.</p>
+          <p class="en">We put the brightest toys on display in the shop window.</p>
+        </div>
+        <ul class="choices">
+          <li><button type="button" data-ok="yes"><span class="mark">A</span>выставлять</button></li>
+          <li><button type="button" data-ok="no"><span class="mark">B</span>выставить</button></li>
+          <li><button type="button" data-ok="no"><span class="mark">C</span>ставить</button></li>
+          <li><button type="button" data-ok="no"><span class="mark">D</span>поставить</button></li>
+        </ul>
+        <p class="feedback" role="status"></p>
+      </div>
+    </section>
 
     <footer>
+      <a href="https://apps.apple.com/sa/app/rukarta-learn-russian-verbs/id6821547588">App Store</a>
+      <span> · </span>
       <a href="https://jasonnaya001-boop.github.io/rukarta-legal/">Privacy</a>
       <span> · </span>
       <a href="mailto:jasonnaya@live.com">jasonnaya@live.com</a>
     </footer>
   </main>
+  <script>
+    const feedback = document.querySelector('.feedback');
+    const buttons = document.querySelectorAll('.choices button');
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const right = button.dataset.ok === 'yes';
+        buttons.forEach((item) => {
+          item.disabled = true;
+          if (item.dataset.ok === 'yes') item.classList.add('right');
+        });
+        if (!right) button.classList.add('wrong');
+        feedback.textContent = right
+          ? 'выставлять. вы- on the same root as ставить: to exhibit.'
+          : 'выставлять. The sentence describes the action in progress, so the imperfective fits.';
+      });
+    });
+  </script>
 </body>
 </html>
