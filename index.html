@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rukarta: Russian verbs from the root up</title>
+  <meta name="description" content="Russian verbs are difficult because meaning, aspect, prefixes, endings, and reflexive forms all work together. Rukarta makes that system visible." />
+  <meta property="og:title" content="Rukarta: Russian verbs from the root up" />
+  <meta property="og:description" content="Stop memorizing isolated words. Start seeing how Russian verbs are built." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="apple-itunes-app" content="app-id=6821547588" />
+  <meta name="theme-color" content="#07170f" />
+  <link rel="icon" href="splash.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Unbounded:wght@500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=6" />
+</head>
+<body>
+
+  <header class="top">
+    <a class="brand" href="#top">Rukarta</a>
+    <nav aria-label="Sections">
+      <a href="#features">Features</a>
+      <a href="#pro">Free and Pro</a>
+      <a href="#questions">Questions</a>
+    </nav>
+    <div class="top__end">
+      <div class="lang" role="group" aria-label="Language">
+        <a href="./" lang="en" aria-current="page">EN</a>
+        <a href="es/" lang="es" hreflang="es">ES</a>
+      </div>
+      <a class="btn btn--mint btn--sm" href="https://apps.apple.com/sa/app/rukarta-learn-russian-verbs/id6821547588">Get the app</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero: the live flashcard is the feature. -->
+    <section class="hero">
+      <div class="hero__copy">
+        <h1>Russian verbs, from the root up.</h1>
+        <p class="lede">Russian verbs are difficult because meaning, aspect, prefixes, endings, and reflexive forms all work together. Rukarta makes that system visible, so you can stop memorizing isolated words and start seeing how Russian verbs are built.</p>
+        <div class="hero__cta">
+          <a class="btn btn--mint" href="https://apps.apple.com/sa/app/rukarta-learn-russian-verbs/id6821547588">Download on the App Store</a>        </div>
+        <p class="fine">Built for offline study. No account required.</p>
+      </div>
+
+      <!-- Guided tour: an iPhone with the app's own screen, rebuilt in HTML. Next moves the screen and explains the step. -->
+      <div class="tour" data-tour aria-labelledby="tour-h">
+        <h2 id="tour-h" class="sr">Take a tour of the app</h2>
+
+        <div class="phone" role="group" aria-label="Guided tour of the Rukarta app">
+          <div class="phone__island"></div>
+          <div class="screen">
+            <div class="screen__in" lang="ru">
+              <div class="app-head" data-focus="header">
+                <span class="chev">‹</span>
+                <span class="app-cat">Placing &amp; holding</span>
+                <span class="chev">›</span>
+              </div>
+
+              <div class="app-mid">
+                <div class="sentence-panel" data-focus="sentence">
+                  <p class="kick" data-role="kick">PROCESS</p>
+                  <div class="sent-view">
+                    <div class="sent-track" data-role="track">
+                      <p class="sent-ru" data-role="sent-ru"></p>
+                      <p class="sent-tr" data-role="sent-tr"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- The coach card: under the sentence, and moved under the answer choices when the quiz opens. -->
+                <div class="coach" data-role="coach" lang="en">
+                  <div class="coach__meta">
+                    <span data-role="stepno">Step 1 of 6</span>
+                    <span class="dots" role="group" aria-label="Tour steps" data-role="dots"></span>
+                  </div>
+                  <div aria-live="polite">
+                    <h3 data-role="title"></h3>
+                    <p data-role="text"></p>
+                  </div>
+                  <div class="coach__controls">
+                    <button type="button" data-role="back">Back</button>
+                    <button type="button" data-role="next">Next</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="app-bottom">
+                <div class="verbwheel" data-focus="verbs">
+                  <span class="chev">‹</span>
+                  <span class="vw vw--side">лежать</span>
+                  <span class="vw vw--cur" data-role="verb">ставить</span>
+                  <span class="vw vw--side">стоять</span>
+                  <span class="chev">›</span>
+                </div>
+
+                <div class="morph" data-role="morph">
+                  <div class="morph__prefix" data-focus="prefix">
+                    <div class="pwheel">
+                      <div class="pwheel__list" data-role="plist"></div>
+                    </div>
+                    <span class="pfx-label" data-role="pfx-label"></span>
+                  </div>
+                  <div class="morph__word" data-focus="card">
+                    <span class="mk" data-role="mk">PROCESS</span>
+                    <span class="mw" data-role="mw"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="drawer" data-focus="quiz" data-role="drawer">
+                <span class="drawer__grab"></span>
+                <span class="drawer__count">1 of 10</span>
+                <p class="drawer__label">WHAT IS THE MISSING VERB?</p>
+                <div class="drawer__q">
+                  <p class="drawer__ru">Музей решил ____ редкие золотые украшения скифов в главном зале.</p>
+                  <p class="drawer__tr">The museum decided to exhibit rare Scythian gold jewellery in the main hall.</p>
+                </div>
+                <ul class="drawer__opts">
+                  <li><span>A</span>выставить</li>
+                  <li><span>B</span>выставлять</li>
+                  <li><span>C</span>поставить</li>
+                  <li><span>D</span>оставить</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features, from the app's own description -->
+    <section id="features" class="features" aria-labelledby="features-h">
+      <h2 id="features-h">See how verbs are built.</h2>
+
+      <div class="feature">
+        <h3>Build verbs from their parts</h3>
+        <p>Turn the verb, prefix, and ending wheels and watch the word change. See how prefixes such as по-, при-, and вы- reshape meaning, and how -ся makes a verb reflexive.</p>
+      </div>
+
+      <div class="feature">
+        <h3>Compare aspect partners</h3>
+        <p>Flip a card to move between imperfective and perfective verbs: the process and the completed result. Each side shows its own prefix, stem, and ending, so the relationship stays visible.</p>
+      </div>
+
+      <div class="feature">
+        <h3>Learn from real sentences</h3>
+        <p>Study example sentences with English translations. Swipe to move through a verb's examples, and use read-aloud to hear the Russian spoken with a voice installed on your device.</p>
+      </div>
+
+      <div class="feature">
+        <h3>Master verbs of motion</h3>
+        <p>See <span lang="ru">идти</span> and <span lang="ru">ходить</span>, <span lang="ru">ехать</span> and <span lang="ru">ездить</span>, and the other motion families as stacked pairs, with an example for each verb. Add a prefix and watch both members of the family change together.</p>
+      </div>
+
+      <div class="feature">
+        <h3>Follow a clear learning path</h3>
+        <p>Explore verbs from A1 through B2 grouped into twelve practical topics. Move through the wheel from everyday actions to abstract and professional vocabulary, or choose a category and focus on what you need.</p>
+      </div>
+
+      <div class="feature">
+        <h3>Practice in sets of ten</h3>
+        <p>Choose the right Russian verb in sets of 10 sentences. Verbs you miss come back as study reminders at 9 am and 7 pm.</p>
+      </div>
+    </section>
+
+    <!-- Free and Pro: the wording and the subscription terms -->
+    <section id="pro" class="pro" aria-labelledby="pro-h">
+      <h2 id="pro-h">Free and Pro</h2>
+      <div class="pro__body">
+        <p>Three of the twelve verb categories are free. Rukarta Pro unlocks the rest, including Motion &amp; transport, Speech &amp; contact, Mind &amp; knowledge, Force &amp; handling, and the rest of the app's content.</p>
+        <p class="legal">Rukarta Pro is an auto-renewing subscription available monthly or annually. Payment is charged to your Apple ID account when you confirm your purchase. The subscription renews automatically unless canceled at least 24 hours before the end of the current period. Your account is charged for renewal within 24 hours before the end of the current period. You can manage or cancel your subscription in your Apple ID account settings after purchase.</p>
+        <p class="legal">
+          <a href="https://jasonnaya001-boop.github.io/rukarta-legal/">Privacy Policy</a>
+          <span aria-hidden="true"> · </span>
+          <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a>
+        </p>
+      </div>
+    </section>
+
+    <section id="questions" class="questions" aria-labelledby="q-h">
+      <h2 id="q-h">Questions</h2>
+      <div class="faq">
+        <details open>
+          <summary>What is free, and what is Rukarta Pro?</summary>
+          <p>Three of the twelve verb categories are free. Rukarta Pro unlocks the rest, including Motion &amp; transport, Speech &amp; contact, Mind &amp; knowledge, and Force &amp; handling.</p>
+        </details>
+        <details>
+          <summary>Does it work offline?</summary>
+          <p>Yes. Verb forms and example sentences are stored in the app, so studying works without a connection. You only need the internet to view, buy or restore Rukarta Pro.</p>
+        </details>
+        <details>
+          <summary>Where is my study history stored?</summary>
+          <p>Only on your device. The app has no accounts and sends no study data anywhere. Deleting the app removes it.</p>
+        </details>
+        <details>
+          <summary>How do I restore a purchase?</summary>
+          <p>Open any category with a Pro badge, tap Restore Purchases, and make sure you are signed in to the same Apple ID that made the purchase.</p>
+        </details>
+        <details>
+          <summary>How do I cancel Pro?</summary>
+          <p>Rukarta Pro is an auto-renewing subscription handled by Apple. Open Settings, tap your name, then Subscriptions, and choose Rukarta. Deleting the app does not cancel it.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="final" aria-labelledby="final-h">
+      <h2 id="final-h">Stop memorizing isolated words. Start seeing how verbs are built.</h2>
+      <div class="hero__cta">
+        <a class="btn btn--mint" href="https://apps.apple.com/sa/app/rukarta-learn-russian-verbs/id6821547588">Download on the App Store</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 Rukarta</span>
+    <nav aria-label="Legal and contact">
+      <a href="https://jasonnaya001-boop.github.io/rukarta-legal/">Privacy</a>
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms</a>
+      <a href="mailto:jasonnaya@live.com">Contact</a>
+    </nav>
+  </footer>
+
+  <script src="app.js?v=6" defer></script>
+</body>
+</html>
