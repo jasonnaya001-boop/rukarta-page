@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rukarta Official Course</title>
+  <meta name="description" content="The Rukarta course." />
+  <meta name="theme-color" content="#07170f" />
+  <link rel="icon" href="../splash.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Unbounded:wght@500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css?v=22" />
+</head>
+<body>
+
+  <header class="top">
+    <a class="brand" href="../">Rukarta</a>
+    <nav aria-label="Course">
+      <a href="../#features">Features</a>
+      <a href="../#pro">Free and Pro</a>
+      <a href="../#questions">Questions</a>
+    </nav>
+    <div class="top__end">
+      <div class="lang" role="group" aria-label="Language">
+        <a href="../../" lang="en" hreflang="en" aria-current="page">EN</a>
+        <a href="../../es/course/" lang="es" hreflang="es">ES</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Home: the plan, then the twelve categories. -->
+    <section class="course-page" data-course-home aria-labelledby="course-page-h">
+      <h1 id="course-page-h">Rukarta Official Course</h1>
+      <p>Follow a step-by-step path through Rukarta to learn verbs with less effort. Pick a category, follow its schedule, and finish with the quiz.</p>
+
+      <dl class="syllabus">
+        <div>
+          <dt>Goal</dt>
+          <dd>Master the core Russian verbs from A1 to B2. Know each verb&rsquo;s imperfective and perfective pair, see how prefixes shift its meaning, and gain confidence with real example sentences.</dd>
+        </div>
+        <div>
+          <dt>Format</dt>
+          <dd>Work through one category at a time, from the category with the fewest verbs to the most. Each category takes three to seven weeks of study, one day at a time, and ends with the quiz. Its page lists the day-by-day schedule.</dd>
+        </div>
+        <div>
+          <dt>Length</dt>
+          <dd>About 42 weeks, roughly 10 months, in two parts, if you study every day. The exact time depends on the category.</dd>
+        </div>
+        <div>
+          <dt>Base verbs</dt>
+          <dd>Learn the category&rsquo;s base verbs without prefixes: three verb pairs a day. Learn the imperfective and the perfective of each verb. For each verb, read its example sentences in the app and check the English translation. Use read-aloud to hear the Russian.</dd>
+        </div>
+        <div>
+          <dt>Prefixes</dt>
+          <dd>Add prefixes to the verbs you already know, up to 5 combinations a day. This goes faster, since the verbs are already familiar. Turn the prefix wheel to see how prefixes such as по-, при- and вы- change the meaning, and which prefixes each verb takes.</dd>
+        </div>
+        <div>
+          <dt>Quiz</dt>
+          <dd>On the last day of the category, take the quiz several times: sets of 10 sentences, where you choose the right verb each time. Review the verbs you miss between attempts. The app also brings them back as reminders at 9 am and 7 pm.</dd>
+        </div>
+        <div>
+          <dt>Exam</dt>
+          <dd>At the end of each part, take the Rukarta Russian Verbs Exam: 80 tough questions, entirely in Russian, with six choices each and only one correct answer. You read the sentence and pick the verb that fits. You see your score and the corrections at the end.</dd>
+        </div>
+        <div>
+          <dt>What you need</dt>
+          <dd>The Rukarta app, to visualize verbs and prefixes, study the sentences and take the quiz.</dd>
+        </div>
+      </dl>
+
+      <h2 class="pick" id="pick-h">Choose a category</h2>
+      <p>Select a category to see its verbs and a day-by-day schedule.</p>
+      <div data-role="cats"></div>
+
+      <a class="btn btn--line" href="../">Back to Rukarta</a>
+    </section>
+
+    <!-- One category: its verbs as a schedule. The rest of the page is hidden. -->
+    <section class="course-page" data-course-cat hidden>
+      <a class="back" href="#">&larr; All categories</a>
+      <h1 data-role="cat-title" tabindex="-1"></h1>
+      <p class="course-summary" data-role="cat-summary"></p>
+      <div data-role="schedule"></div>
+    </section>
+
+    <!-- The exam: drawn by exam.js. -->
+    <section class="course-page" data-course-exam hidden></section>
+  </main>
+
+  <footer>
+    <span>© 2026 Rukarta</span>
+    <nav aria-label="Legal and contact">
+      <a href="https://jasonnaya001-boop.github.io/rukarta-legal/">Privacy</a>
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms</a>
+      <a href="mailto:jasonnaya@live.com">Contact</a>
+    </nav>
+  </footer>
+
+  <script src="course-data.js?v=6" defer></script>
+  <script src="exam-data.js?v=1" defer></script>
+  <script src="exam.js?v=1" defer></script>
+  <script src="course.js?v=24" defer></script>
+</body>
+</html>
